@@ -1,0 +1,85 @@
+/* Reset and global settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: "Fira Code", monospace;
+  background-color: #1e1e1e;
+}
+
+/* Main container */
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Layout */
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Left section */
+.left {
+  flex: 1;
+  background-color: #000000;
+  border-radius: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem;
+}
+
+/* Updated Review Button */
+.review-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  background-color: rgb(146, 146, 198);
+  color: #000;
+  padding: 0.8rem 1.5rem; /* Bigger size */
+  font-weight: bold;
+  font-size: 1rem; /* Optional: larger text */
+  border-radius: 0.7rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.review-btn:hover {
+  background-color: rgb(166, 166, 218);
+}
+.code {
+  flex: 1;
+}
+/* Right section */
+.right {
+  flex: 1;
+  background-color: #343434;
+  color: #f0f0f0;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+/* Optional: loading text */
+.loading-text {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+main .right {
+  font-size: 1.5rem;
+  overflow: auto;
+}
