@@ -4,7 +4,7 @@ import prism from "prismjs";
 import axios from "axios";
 import Markdown from "react-markdown";
 import Editor from "react-simple-code-editor";
-import rehpeHighlight from "rehype-highlight";
+import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import "./App.css";
 
@@ -25,7 +25,7 @@ const App = () => {
       const response = await axios.post("http://localhost:3000/ai/get-review", {
         code,
       });
-      setReview(response.data); // If response is { review: "..." }, use response.data.review
+      setReview(response.data); // You can update to response.data.review if your backend returns an object
     } catch (error) {
       console.error("Error during code review:", error);
       setReview("❌ Failed to fetch review. Please check the server.");
@@ -48,11 +48,12 @@ const App = () => {
               style={{
                 fontFamily: '"Fira Code", monospace',
                 fontSize: 16,
-                height: "100%",
+                minHeight: "100%",
                 width: "100%",
                 backgroundColor: "#0c0c0c",
                 color: "#f8f8f2",
                 borderRadius: "0.5rem",
+                overflow: "auto",
               }}
             />
           </div>
@@ -66,7 +67,7 @@ const App = () => {
             <p className="loading-text">🔄 Reviewing code...</p>
           ) : (
             <Markdown
-            rehypePlugins={[rehpeHighlight]}
+              rehypePlugins={[rehypeHighlight]}
               components={{
                 code({ node, inline, className, children, ...props }) {
                   return (
